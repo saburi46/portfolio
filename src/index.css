@@ -1,32 +1,99 @@
 /* ========================================
-   GLOBAL STYLES
+   SABRIN'S PORTFOLIO
+   Warm Brown + Cream
 ======================================== */
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
 
+/* ========================================
+   LIGHT MODE — WARM CREAM
+======================================== */
+
 :root {
   font-family: "DM Sans", sans-serif;
-  color: #29231f;
-  background: #faf7f2;
+
+  color: #3b2922;
+  background: #faf5ed;
+  color-scheme: light;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --background: #faf7f2;
-  --espresso: #29231f;
-  --terracotta: #c4775a;
-  --taupe: #d8cec3;
-  --muted: #77716b;
-  --white: #ffffff;
-  --border: #e9e1d8;
+  /* Backgrounds */
+  --background: #faf5ed;
+  --surface: #fffdf9;
+  --surface-soft: #f2e8dc;
+  --surface-hover: #eadccd;
 
+  /* Text */
+  --text: #3b2922;
+  --text-secondary: #746056;
+  --text-muted: #978579;
+
+  /* Warm brown accents */
+  --accent: #986b52;
+  --accent-hover: #79503b;
+  --accent-soft: #efe0d3;
+
+  /* Borders and shadows */
+  --border: #e7d8c9;
+  --shadow: 0 12px 35px rgba(59, 41, 34, 0.08);
+
+  /* Compatibility with existing styles */
+  --espresso: #3b2922;
+  --terracotta: #986b52;
+  --taupe: #d8c2af;
+  --muted: #746056;
+  --white: #fffdf9;
+
+  /* Typography */
   --serif: "Playfair Display", Georgia, serif;
   --sans: "DM Sans", sans-serif;
+
+  /* Transitions */
+  --transition: 220ms ease;
 }
 
-/* Reset */
+/* ========================================
+   DARK MODE — SOFT CHARCOAL-BROWN
+======================================== */
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Backgrounds */
+  --background: #35302d;
+  --surface: #413a35;
+  --surface-soft: #4b423c;
+  --surface-hover: #584b43;
+
+  /* Text */
+  --text: #f8f0e7;
+  --text-secondary: #dfd0c3;
+  --text-muted: #c0ad9e;
+
+  /* Warm brown accents */
+  --accent: #d0a58a;
+  --accent-hover: #e3bda5;
+  --accent-soft: #554239;
+
+  /* Borders and shadows */
+  --border: #62534a;
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+
+  /* Compatibility with existing styles */
+  --espresso: #f8f0e7;
+  --terracotta: #d0a58a;
+  --taupe: #62534a;
+  --muted: #dfd0c3;
+  --white: #413a35;
+}
+
+/* ========================================
+   GLOBAL RESET
+======================================== */
 
 * {
   box-sizing: border-box;
@@ -41,7 +108,17 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  color: var(--text);
+  background: var(--background);
+  font-family: var(--sans);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
+
+/* ========================================
+   TYPOGRAPHY
+======================================== */
 
 body,
 button,
@@ -50,6 +127,25 @@ textarea,
 select {
   font-family: var(--sans);
 }
+
+h1,
+h2,
+h3 {
+  color: var(--text);
+}
+
+h1,
+h2 {
+  font-family: var(--serif);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   LINKS AND BUTTONS
+======================================== */
 
 button,
 a {
@@ -68,19 +164,56 @@ select {
   font-size: inherit;
 }
 
+button {
+  color: inherit;
+}
+
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid var(--terracotta);
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
+
+/* ========================================
+   FORMS
+======================================== */
+
+input,
+textarea,
+select {
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+}
+
+/* ========================================
+   IMAGES AND SVG
+======================================== */
 
 img,
 svg {
   display: block;
   max-width: 100%;
 }
+
+/* ========================================
+   CONTENT WRAPPING
+======================================== */
 
 h1,
 h2,
@@ -89,12 +222,46 @@ p {
   overflow-wrap: break-word;
 }
 
+/* ========================================
+   TEXT SELECTION
+======================================== */
+
 ::selection {
-  color: var(--white);
-  background: var(--terracotta);
+  color: #ffffff;
+  background: var(--accent);
 }
 
-/* Accessibility */
+/* ========================================
+   SEPARATORS
+======================================== */
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+/* ========================================
+   THEME TRANSITIONS
+======================================== */
+
+a,
+button,
+input,
+textarea,
+select,
+section,
+article,
+nav,
+footer {
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   *,

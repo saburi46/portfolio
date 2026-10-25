@@ -12,9 +12,7 @@ function Footer() {
 
       <p>Thoughtfully built, one step at a time.</p>
 
-      <a href="#home" className="back-to-top">
-        Back to top ↑
-      </a>
+      
 
       <span className="copyright">
         © {currentYear} {personalInfo.name}. All rights reserved.

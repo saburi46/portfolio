@@ -29,11 +29,19 @@ function Hero() {
 
         <div className="hero-actions">
           <a className="button button-primary" href="#projects">
-            Explore my work <span>↗</span>
+            Explore my work <span aria-hidden="true">↗</span>
           </a>
 
           <a className="button button-secondary" href="#about">
-            More about me <span>↓</span>
+            More about me <span aria-hidden="true">↓</span>
+          </a>
+
+          <a
+            className="button button-secondary"
+            href="/cv.pdf"
+            download="Sabrin_Abdu_CV.pdf"
+          >
+            Download CV <span aria-hidden="true">↓</span>
           </a>
         </div>
 
@@ -62,7 +70,9 @@ function Hero() {
         </div>
 
         <div className="floating-card floating-top">
-          <span className="floating-icon">✳</span>
+          <span className="floating-icon" aria-hidden="true">
+            ✳
+          </span>
 
           <div>
             <strong>Curiosity</strong>
@@ -71,7 +81,7 @@ function Hero() {
         </div>
 
         <div className="floating-card floating-bottom">
-          <span className="floating-icon code-icon">
+          <span className="floating-icon code-icon" aria-hidden="true">
             &lt;/&gt;
           </span>
 
@@ -81,8 +91,13 @@ function Hero() {
           </div>
         </div>
 
-        <span className="decorative-star star-one">✳</span>
-        <span className="decorative-star star-two">✳</span>
+        <span className="decorative-star star-one" aria-hidden="true">
+          ✳
+        </span>
+
+        <span className="decorative-star star-two" aria-hidden="true">
+          ✳
+        </span>
       </div>
 
       <div className="hero-index">
